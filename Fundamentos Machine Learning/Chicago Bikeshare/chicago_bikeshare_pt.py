@@ -63,7 +63,7 @@ def column_to_list(data: list, index: int) -> list:
           retorna uma lista que traz todos os valores da coluna informada
 
     """
-    column_list = [item[index] for item in data]
+    column_list = [line[index] for line in data]
     # Dica: Você pode usar um for para iterar sobre as amostras, pegar a feature pelo seu índice, e dar append para uma lista
     return column_list
 
@@ -152,7 +152,9 @@ def most_popular_gender(data_list: list) -> str:
     male, female = count_gender(data_list)
     if male > female:
         return 'Male'
-    return 'Female'
+    elif male < female:
+        return 'Female'
+    return 'Equal'
 
 print("\nTAREFA 6: Qual é o gênero mais popular na lista?")
 print("O gênero mais popular na lista é: ", most_popular_gender(data_list))
